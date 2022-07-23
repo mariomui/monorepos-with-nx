@@ -51,7 +51,7 @@
         "cwd": "libs/models"
       }
     },
-    "migrate-auto": 
+    "migrate-sync": {
       "executor": "nx:run-commands",
       "options": {
         "commands": [
