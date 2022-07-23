@@ -27,8 +27,14 @@
           "cwd": "libs/models",
           "parallel": false
       }
-  }
-  
+    },
+    "migrate-reset": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["npx prisma migrate reset --schema ./src/prisma/schema.prisma"],
+        "cwd": "libs/models"
+      }
+    }
   },
   "tags": []
 }
