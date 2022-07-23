@@ -18,11 +18,20 @@
         "passWithNoTests": true
       }
     },
-    "models-ui-view": {
-      "executor": "nx:run-commnads",
+    "db-push": {
+      "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "npx prisma studio --schema ./libs/models/src/prisma/schema.prisma"
+          "npx prisma db push --schema ./src/prisma/schema.prisma"
+        ],
+        "cwd": "libs/models"
+      }
+    },
+    "db-seed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "npx prisma db seed"
         ],
         "cwd": "libs/models"
       }
@@ -31,7 +40,7 @@
       "executor": "nx:run-commands",
       "options": {
           "commands": [
-            "npx prisma migrate dev --experimental --schema ./src/prisma/schema.prisma"
+            "npx prisma migrate dev --schema ./src/prisma/schema.prisma"
           ],
           "cwd": "libs/models",
           "parallel": false
@@ -41,7 +50,8 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": ["npx prisma migrate reset --force --schema ./src/prisma/schema.prisma"],
-        "cwd": "libs/models"
+        "cwd": "libs/models",
+        "parallel": false
       }
     },
     "prisma-studio": {
@@ -56,7 +66,7 @@
       "options": {
         "commands": [
           "npx prisma db pull --schema ./src/prisma/schema.prisma",
-        "npx prisma migrate dev --name introspected_change --schema ./src/prisma/schema.prisma"
+          "npx prisma migrate dev --name introspected_change --schema ./src/prisma/schema.prisma --skip-generate"
       ],
         "cwd": "libs/models"
       }

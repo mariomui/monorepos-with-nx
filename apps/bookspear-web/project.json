@@ -51,7 +51,7 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "bookspear-web:build",
-        "hmr": true,
+        "hmr": false,
         "proxyConfig": "apps/bookspear-web/proxy.conf.json"
       },
       "configurations": {
