@@ -5,6 +5,8 @@
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
     "bookspear-web": "apps/bookspear-web",
-    "bookspear-web-e2e": "apps/bookspear-web-e2e"
+    "bookspear-web-e2e": "apps/bookspear-web-e2e",
+    "models": "libs/models"
   }
 }
+
