@@ -22,7 +22,7 @@
       "executor": "nx:run-commands",
       "options": {
           "commands": [
-            "ls"
+            "npx nx run migrate dev --name init"
           ],
           "cwd": "libs/models",
           "parallel": false
