@@ -18,11 +18,11 @@
         "passWithNoTests": true
       }
     },
-    "migrate": {
+    "migrate-dev": {
       "executor": "nx:run-commands",
       "options": {
           "commands": [
-            ""
+            "npx prisma migrate dev --schema ./src/prisma/schema.prisma"
           ],
           "cwd": "libs/models",
           "parallel": false
