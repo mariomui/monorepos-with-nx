@@ -31,7 +31,7 @@
     "migrate-reset": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["npx prisma migrate reset --schema ./src/prisma/schema.prisma"],
+        "commands": ["npx prisma migrate reset --force --schema ./src/prisma/schema.prisma"],
         "cwd": "libs/models"
       }
     }
