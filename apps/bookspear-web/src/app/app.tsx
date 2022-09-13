@@ -5,9 +5,12 @@ export const App = () => {
   const [m, setMessage] = useState<Message>({ message: '' });
 
   useEffect(() => {
-    fetch('/api')
-      .then((r) => r.json())
-      .then(setMessage);
+    void async function getApiMessage() {
+      const r = await fetch('/api/greeting')
+      const _r = await r.json()
+      setMessage(_r)
+    }()
+
   }, []);
 
   return (
