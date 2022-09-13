@@ -5,7 +5,12 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "start:dev": "run-s tab:begin:app tab:begin:api tab:begin:prisma-studio", 
+    "tab:begin:app": "ttab -t 'Building app' npm run nx -- run bookspear-web:serve",
+    "tab:begin:api": "ttab -t 'Serving api' npm run nx -- run api:serve",
+    "tab:begin:prisma-studio": "ttab -t 'Running studio' npm run nx -- run models:prisma-studio",
+    "nx": "nx"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts"
@@ -53,12 +58,14 @@
     "eslint-plugin-react": "7.30.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "jest": "27.5.1",
+    "npm-run-all": "^4.1.5",
     "nx": "14.4.3",
     "prettier": "^2.6.2",
     "prisma": "^4.1.0",
     "react-test-renderer": "18.2.0",
     "ts-jest": "27.1.4",
     "ts-node": "^10.9.1",
+    "ttab": "^0.7.3",
     "typescript": "~4.7.2"
   }
 }

@@ -8,25 +8,25 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "compiler": "babel",
-        "outputPath": "dist/apps/bookspear-web",
-        "index": "apps/bookspear-web/src/index.html",
         "baseHref": "/",
+        "compiler": "babel",
+        "index": "apps/bookspear-web/src/index.html",
         "main": "apps/bookspear-web/src/main.tsx",
+        "outputPath": "dist/apps/bookspear-web",
         "polyfills": "apps/bookspear-web/src/polyfills.ts",
+        "scripts": [],
+        "styles": [],
         "tsConfig": "apps/bookspear-web/tsconfig.app.json",
+        "webpackConfig": "@nrwl/react/plugins/webpack",
         "assets": [
           "apps/bookspear-web/src/favicon.ico",
           "apps/bookspear-web/src/assets"
-        ],
-        "styles": [],
-        "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        ]
       },
       "configurations": {
         "development": {
           "extractLicenses": false,
-          "optimization": false,
+          "optimization": true,
           "sourceMap": true,
           "vendorChunk": true
         },
@@ -52,7 +52,8 @@
       "options": {
         "buildTarget": "bookspear-web:build",
         "hmr": false,
-        "proxyConfig": "apps/bookspear-web/proxy.conf.json"
+        "proxyConfig": "apps/bookspear-web/proxy.conf.json",
+        "open": true
       },
       "configurations": {
         "development": {
