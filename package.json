@@ -6,14 +6,14 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "start:dev": "run-s tab:begin:app tab:begin:api tab:begin:prisma-studio", 
-    "tab:begin:app": "ttab -t 'Building app' npm run nx -- run bookspear-web:serve",
+    "start:dev": "run-s tab:begin:shell tab:begin:api tab:begin:prisma-studio",
+    "tab:begin:shell": "ttab -t 'Building shell' npm run nx -- run console-root:serve",
     "tab:begin:api": "ttab -t 'Serving api' npm run nx -- run api:serve",
     "tab:begin:prisma-studio": "ttab -t 'Running studio' npm run nx -- run models:prisma-studio",
     "nx": "nx"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "express": "4.17.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "6.3.0",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.3.0"
   },
@@ -46,6 +47,7 @@
     "@types/node": "16.11.7",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
+    "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "babel-jest": "27.5.1",

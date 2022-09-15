@@ -1,16 +1,31 @@
 
 # Bookspear
 
+## Before You Start Developing
+
+* create a .env in your root folder
+  * ask the KeyMaster for the URL link and password to supabase
+    * (eventually this will be deprecated for custom auth)
+
 ## For devs
+
+### Running the backend, frontend, db
 
 * running dev manually.
   * app
-    * `npm run nx -- run bookspear-web:serve`,
+    * `npm run nx -- run console-root:serve`,
   * OSI8 protocol layer
     * `npm run nx -- run api:serve`,
   * tools to architect/view data layer
     * `npm run nx -- run models:prisma-studio`,
 * using the start:dev script for ez access
+
+### Creating a feature
+
+* Create an app
+  * Run `nx g @nrwl/react:app my-app` to generate an application.
+  * expose it as a remote and use it as whatever.
+    * check out the viability of exposing your types to the host application. If not just use redefine. Put it in the mfe-shared/types lib when you have the chance (make the mfe shared types lib)
 
 ## gotchas
 

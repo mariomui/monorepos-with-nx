@@ -1,0 +1,90 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/console-root/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/console-root",
+        "index": "apps/console-root/src/index.html",
+        "baseHref": "/",
+        "main": "apps/console-root/src/main.ts",
+        "polyfills": "apps/console-root/src/polyfills.ts",
+        "tsConfig": "apps/console-root/tsconfig.app.json",
+        "assets": [
+          "apps/console-root/src/favicon.ico",
+          "apps/console-root/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "optimization": {
+          "scripts": true,
+          "styles": true
+        },
+        "webpackConfig": "apps/console-root/webpack.config.js"
+      },
+      "configurations": {
+        
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "webpackConfig": "apps/console-root/webpack.config.prod.js",
+          "fileReplacements": [
+            {
+              "replace": "apps/console-root/src/environments/environment.ts",
+              "with": "apps/console-root/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "console-root:build",
+        "open": true,
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "console-root:build:development"
+        },
+        "production": {
+          "buildTarget": "console-root:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/console-root/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/console-root"],
+      "options": {
+        "jestConfig": "apps/console-root/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
