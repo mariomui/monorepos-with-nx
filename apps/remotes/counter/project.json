@@ -1,0 +1,83 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/remotes/counter/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/remotes/counter",
+        "index": "apps/remotes/counter/src/index.html",
+        "baseHref": "/",
+        "main": "apps/remotes/counter/src/main.tsx",
+        "polyfills": "apps/remotes/counter/src/polyfills.ts",
+        "tsConfig": "apps/remotes/counter/tsconfig.app.json",
+        "assets": [
+          "apps/remotes/counter/src/favicon.ico",
+          "apps/remotes/counter/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/remotes/counter/src/environments/environment.ts",
+              "with": "apps/remotes/counter/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "remotes-counter:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "remotes-counter:build:development"
+        },
+        "production": {
+          "buildTarget": "remotes-counter:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/remotes/counter/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/remotes/counter"],
+      "options": {
+        "jestConfig": "apps/remotes/counter/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
