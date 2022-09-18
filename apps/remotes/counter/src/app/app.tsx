@@ -6,9 +6,11 @@ const StyledApp = styled.div`
 `;
 
 export function App() {
+  
   return (
     <StyledApp>
-      <NxWelcome title="remotes-counter" />
+      <div>{counter}</div>
+      <button onClick={handleClick} />
     </StyledApp>
   );
 }
