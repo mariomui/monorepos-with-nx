@@ -55,11 +55,12 @@
       "options": {
         "buildTarget": "remotes-counter:build",
         "hmr": true,
-        "port": 4201
+        "port": 4201,
+        "watch": true,
+        "liveReload": true
       },
       "configurations": {
         "development": {
-          "optimization": true,
           "buildTarget": "remotes-counter:build:development"
         },
         "production": {

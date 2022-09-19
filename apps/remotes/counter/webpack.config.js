@@ -9,19 +9,19 @@ const federatedWebpack = withModuleFederation({
 });
 
 const polyfillConfig = {
-  devtool: false,
+  // devtool: false,
 };
 
 module.exports = new Promise((resolve) =>
   federatedWebpack.then((fn) => {
     resolve((config) => {
-      const _config = fn(merge(config, polyfillConfig));
-      try {
-        writeFileSync('./webpack-counter.json', JSON.stringify(_config));
-      } catch (err) {
-        console.log(err);
-      }
-      return _config;
+      // const _config = fn(merge(config, polyfillConfig));
+      // try {
+      //   writeFileSync('./webpack-counter.json', JSON.stringify(_config));
+      // } catch (err) {
+      //   console.log(err);
+      // }
+      return fn(merge(config, polyfillConfig));
     });
   })
 );

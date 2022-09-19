@@ -12,11 +12,13 @@ export function App() {
     setCounter(counter + 1);
   }
   return (
+    <React.Suspense fallback={null}>
     <StyledApp>
       <div>{counter}</div>
-      testindddg
+      not  dfsfdf 
       <button onClick={handleClick}>Click Me </button>
     </StyledApp>
+    </React.Suspense >
   );
 }
 

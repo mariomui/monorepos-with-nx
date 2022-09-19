@@ -57,6 +57,10 @@
       "executor": "@nrwl/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
+        "devRemotes": [
+          "remotes-counter"
+        ],
+        "port": 4200,
         "buildTarget": "console-root:build",
         "open": true,
         "hmr": true
