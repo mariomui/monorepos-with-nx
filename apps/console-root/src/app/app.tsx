@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import {Suspense, lazy} from 'react'
+import { Suspense, lazy } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-const Counter = lazy(() => import('remotes-counter/Module'))
+const Counter = lazy(() => import('remotes-counter/Module'));
 
 const StyledApp = styled.div`
   // Your style here
@@ -15,7 +15,6 @@ if (typeof window !== undefined) {
 }
 self.$RefreshReg$ = () => ({});
 self.$RefreshReg$ = () => () => ({});
-
 
 export function App() {
   return (

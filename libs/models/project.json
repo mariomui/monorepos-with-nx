@@ -5,20 +5,14 @@
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/models/**/*.ts"
-        ]
+        "lintFilePatterns": ["libs/models/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/models"
-      ],
+      "outputs": ["coverage/libs/models"],
       "options": {
         "jestConfig": "libs/models/jest.config.ts",
         "passWithNoTests": true
@@ -27,18 +21,14 @@
     "db-push": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": [
-          "npx prisma db push --schema ./src/prisma/schema.prisma"
-        ],
+        "commands": ["npx prisma db push --schema ./src/prisma/schema.prisma"],
         "cwd": "libs/models"
       }
     },
     "db-seed": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": [
-          "npx prisma db seed"
-        ],
+        "commands": ["npx prisma db seed"],
         "cwd": "libs/models"
       }
     },
@@ -65,9 +55,7 @@
     "prisma-studio": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": [
-          "npx prisma studio --schema ./src/prisma/schema.prisma"
-        ],
+        "commands": ["npx prisma studio --schema ./src/prisma/schema.prisma"],
         "cwd": "libs/models"
       }
     },

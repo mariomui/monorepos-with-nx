@@ -1,12 +1,12 @@
 declare global {
   interface Window {
     // eslint-disable-next-line @typescript-eslint/ban-types
-    $RefreshReg$: any | {};
+    $RefreshReg$: unknown;
   }
 }
 declare global {
   // eslint-disable-next-line no-var
-  var $RefreshReg$: any | {};
+  var $RefreshReg$: unknown;
 }
 
 export {};

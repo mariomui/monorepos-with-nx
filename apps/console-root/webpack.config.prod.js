@@ -2,6 +2,7 @@ const withModuleFederation = require('@nrwl/react/module-federation');
 const moduleFederationConfig = require('./module-federation.config');
 const { merge } = require('webpack-merge');
 const { writeFileSync } = require('fs');
+const { join } = require('path');
 
 const federatedWebpack = withModuleFederation({
   ...moduleFederationConfig,
@@ -11,22 +12,27 @@ const federatedWebpack = withModuleFederation({
 const polyfillConfig = {
   mode: 'production',
 };
-const configureWritePath = (env, name) => {
-  return `./debugs/debug-webpack-config-${env}-${name}.json`;
+const configureWritePath = (rootPath, { env, name }) => {
+  const path = join(
+    rootPath,
+    `debugs/debug-webpack-config-${env}-${name}.json`
+  );
+  console.log({ path });
+  return path;
 };
 const isDebugEnv = process.env?.DEBUG_ENV === 'true';
 module.exports = new Promise((resolve) =>
   federatedWebpack.then((fn) => {
     resolve((config, context) => {
-      console.log({ context });
       const mergedConfig = fn(merge(config, polyfillConfig));
       if (isDebugEnv) {
+        console.log(mergedConfig);
         try {
           writeFileSync(
-            configureWritePath(
-              context.configuration,
-              mergedConfig.output.uniqueName
-            ),
+            configureWritePath('./', {
+              env: context.configuration,
+              name: mergedConfig.output.uniqueName,
+            }),
             JSON.stringify(mergedConfig)
           );
         } catch (err) {

@@ -11,7 +11,7 @@
     "tab:begin:api": "ttab -t 'Serving api' npm run nx -- run api:serve",
     "tab:begin:prisma-studio": "ttab -t 'Running studio' npm run nx -- run models:prisma-studio",
     "nx": "nx",
-    "lintme:json": "eslint \"**/*.json\" --quiet --fix ;"
+    "nxformat": "npm run -- nx  format:write --libs-and-apps"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"

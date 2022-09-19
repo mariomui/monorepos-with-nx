@@ -5,9 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
@@ -57,9 +55,7 @@
       "executor": "@nrwl/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "devRemotes": [
-          "remotes-counter"
-        ],
+        "devRemotes": ["remotes-counter"],
         "port": 4200,
         "buildTarget": "console-root:build",
         "open": true,
@@ -77,20 +73,14 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/console-root/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["apps/console-root/**/*.{ts,tsx,js,jsx,json}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/console-root"
-      ],
+      "outputs": ["coverage/apps/console-root"],
       "options": {
         "jestConfig": "apps/console-root/jest.config.ts",
         "passWithNoTests": true
@@ -114,7 +104,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": [
-    "remotes-counter"
-  ]
+  "implicitDependencies": ["remotes-counter"]
 }
