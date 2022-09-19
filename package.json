@@ -10,7 +10,8 @@
     "tab:begin:shell": "ttab -t 'Building shell' npm run nx -- run console-root:serve",
     "tab:begin:api": "ttab -t 'Serving api' npm run nx -- run api:serve",
     "tab:begin:prisma-studio": "ttab -t 'Running studio' npm run nx -- run models:prisma-studio",
-    "nx": "nx"
+    "nx": "nx",
+    "lintme:json": "eslint \"**/*.json\" --quiet --fix ;"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"
@@ -52,6 +53,7 @@
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
     "babel-jest": "28.1.3",
+    "cross-env": "^7.0.3",
     "cypress": "^9.1.0",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
