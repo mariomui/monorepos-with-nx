@@ -39,3 +39,6 @@ testem.log
 Thumbs.db
 
 **/*/.env
+
+
+debugs/debug-webpack-config-*.json

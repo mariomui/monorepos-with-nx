@@ -12,23 +12,24 @@ Run `nx lint models` to execute the lint via [ESLint](https://eslint.org/).
 
 ## Running custom prisma commands (WIP)
 
-* prisma is an ORM
-* db push allows us to push schema changes to the db.
-* migrate dev allows us to do db push with a
-* prisma migrate dev and prisma migrate reset automatically run the seeding script unless the scripts have skip-seeding on them
-* npx nx run models:migrate-reset
-  * actions:
-    * Drops the database/schema¹ if possible, or performs a soft reset if the environment does not allow deleting databases/schemas¹
-    * Creates a new database/schema¹ with the same name if the database/schema¹ was dropped
-    * Applies all migrations
-    * Runs seed scripts
+- prisma is an ORM
+- db push allows us to push schema changes to the db.
+- migrate dev allows us to do db push with a
+- prisma migrate dev and prisma migrate reset automatically run the seeding script unless the scripts have skip-seeding on them
+- npx nx run models:migrate-reset
 
-* npx nx run models:migrate-dev
-  * creates migrations
-* npx nx run models:db-push
-  * prototypes schema changes
-* migrate-sync
-  * pulls the database, and overwrites our schema with whatever our database has
+  - actions:
+    - Drops the database/schema¹ if possible, or performs a soft reset if the environment does not allow deleting databases/schemas¹
+    - Creates a new database/schema¹ with the same name if the database/schema¹ was dropped
+    - Applies all migrations
+    - Runs seed scripts
+
+- npx nx run models:migrate-dev
+  - creates migrations
+- npx nx run models:db-push
+  - prototypes schema changes
+- migrate-sync
+  - pulls the database, and overwrites our schema with whatever our database has
 
 ## Running
 

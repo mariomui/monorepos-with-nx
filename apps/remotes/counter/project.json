@@ -1,0 +1,104 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/remotes/counter/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/remotes/counter",
+        "index": "apps/remotes/counter/src/index.html",
+        "baseHref": "/",
+        "main": "apps/remotes/counter/src/main.ts",
+        "polyfills": "apps/remotes/counter/src/polyfills.ts",
+        "tsConfig": "apps/remotes/counter/tsconfig.app.json",
+        "assets": [
+          "apps/remotes/counter/src/favicon.ico",
+          "apps/remotes/counter/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "apps/remotes/counter/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/remotes/counter/src/environments/environment.ts",
+              "with": "apps/remotes/counter/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/remotes/counter/webpack.config.prod.js"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "remotes-counter:build",
+        "hmr": true,
+        "port": 4201,
+        "watch": true,
+        "liveReload": true
+      },
+      "configurations": {
+        "development": {
+          "optimization": "true",
+          "buildTarget": "remotes-counter:build:development"
+        },
+        "production": {
+          "buildTarget": "remotes-counter:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/remotes/counter/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/remotes/counter"],
+      "options": {
+        "jestConfig": "apps/remotes/counter/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "remotes-counter:build",
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "remotes-counter:build:development"
+        },
+        "production": {
+          "buildTarget": "remotes-counter:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

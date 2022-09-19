@@ -28,7 +28,6 @@
         "webpackConfig": "apps/console-root/webpack.config.js"
       },
       "configurations": {
-        
         "development": {
           "extractLicenses": false,
           "optimization": false,
@@ -56,6 +55,8 @@
       "executor": "@nrwl/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
+        "devRemotes": ["remotes-counter"],
+        "port": 4200,
         "buildTarget": "console-root:build",
         "open": true,
         "hmr": true
@@ -74,7 +75,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/console-root/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/console-root/**/*.{ts,tsx,js,jsx,json}"]
       }
     },
     "test": {
@@ -84,7 +85,24 @@
         "jestConfig": "apps/console-root/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "host:build",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "host:build:development"
+        },
+        "production": {
+          "buildTarget": "host:build:production"
+        }
+      }
     }
   },
-  "tags": []
+  "tags": [],
+  "implicitDependencies": ["remotes-counter"]
 }

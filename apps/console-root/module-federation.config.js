@@ -1,4 +1,4 @@
 module.exports = {
   name: 'console-root',
-  remotes: [],
+  remotes: [['remotes-counter', 'http://localhost:4201']],
 };
