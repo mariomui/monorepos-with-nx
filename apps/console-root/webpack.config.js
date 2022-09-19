@@ -4,14 +4,21 @@ const { merge } = require('webpack-merge');
 
 const federatedWebpack = withModuleFederation({
   ...moduleFederationConfig,
-  // remember not to overwrite remotes here as module federation comes with default for development
+  // remember not to overwrite remotes here as module federation comes with default for development,
 });
 
 const polyfillConfig = {};
 
 module.exports = new Promise((resolve) =>
   federatedWebpack.then((fn) => {
-    resolve((config) => fn(merge(config, polyfillConfig)));
+    resolve((config) => {
+      const _config = fn(merge(config, polyfillConfig));
+      // eslint-disable-next-line no-prototype-builtins
+      if (_config?.devServer) {
+        _config.devServer.compress = true;
+      }
+      return _config;
+    });
   })
 );
 

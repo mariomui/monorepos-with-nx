@@ -5,12 +5,11 @@ const { merge } = require('webpack-merge');
 
 const federatedWebpack = withModuleFederation({
   ...moduleFederationConfig,
-  remotes: [['remote-counter', 'http://localhost:4201/']],
+  remotes: [['remotes-counter', 'http://localhost:4201/']],
 });
 
 const polyfillConfig = {
   mode: 'production',
-  devtool: false,
 };
 
 module.exports = new Promise((resolve) =>

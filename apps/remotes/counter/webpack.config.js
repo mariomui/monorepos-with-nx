@@ -1,7 +1,7 @@
 const withModuleFederation = require('@nrwl/react/module-federation');
 const moduleFederationConfig = require('./module-federation.config');
 const { merge } = require('webpack-merge');
-const { writeFile, writeFileSync } = require('fs');
+const { writeFileSync } = require('fs');
 
 // development file
 const federatedWebpack = withModuleFederation({
@@ -15,13 +15,14 @@ const polyfillConfig = {
 module.exports = new Promise((resolve) =>
   federatedWebpack.then((fn) => {
     resolve((config) => {
-      // const _config = fn(merge(config, polyfillConfig));
+      const _config = fn(merge(config, polyfillConfig));
       // try {
       //   writeFileSync('./webpack-counter.json', JSON.stringify(_config));
       // } catch (err) {
       //   console.log(err);
       // }
-      return fn(merge(config, polyfillConfig));
+      _config.watch = true;
+      return _config;
     });
   })
 );

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import React from 'react'
+import {Suspense, lazy} from 'react'
 import { Route, Routes, Link } from 'react-router-dom';
-const Counter = React.lazy(() => import('remotes-counter/Module'))
+const Counter = lazy(() => import('remotes-counter/Module'))
 
 const StyledApp = styled.div`
   // Your style here
@@ -9,7 +9,7 @@ const StyledApp = styled.div`
 
 export function App() {
   return (
-    <React.Suspense fallback={null}>
+    <Suspense fallback={null}>
       <StyledApp>
         <div role="navigation">
           <ul>
@@ -43,7 +43,7 @@ export function App() {
         </Routes>
         {/* END: routes */}
       </StyledApp>
-    </React.Suspense>
+    </Suspense>
   );
 }
 
