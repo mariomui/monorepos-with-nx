@@ -5,14 +5,16 @@
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
         "outputPath": "dist/apps/remotes/counter",
         "index": "apps/remotes/counter/src/index.html",
         "baseHref": "/",
-        "main": "apps/remotes/counter/src/main.tsx",
+        "main": "apps/remotes/counter/src/main.ts",
         "polyfills": "apps/remotes/counter/src/polyfills.ts",
         "tsConfig": "apps/remotes/counter/tsconfig.app.json",
         "assets": [
@@ -21,7 +23,7 @@
         ],
         "styles": [],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "apps/remotes/counter/webpack.config.js"
       },
       "configurations": {
         "development": {
@@ -42,12 +44,13 @@
           "sourceMap": false,
           "namedChunks": false,
           "extractLicenses": true,
-          "vendorChunk": false
+          "vendorChunk": false,
+          "webpackConfig": "apps/remotes/counter/webpack.config.prod.js"
         }
       }
     },
     "serve": {
-      "executor": "@nrwl/web:dev-server",
+      "executor": "@nrwl/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "remotes-counter:build",
@@ -56,6 +59,7 @@
       },
       "configurations": {
         "development": {
+          "optimization": true,
           "buildTarget": "remotes-counter:build:development"
         },
         "production": {
@@ -66,17 +70,39 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/remotes/counter/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/remotes/counter/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/remotes/counter"],
+      "outputs": [
+        "coverage/apps/remotes/counter"
+      ],
       "options": {
         "jestConfig": "apps/remotes/counter/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "remotes-counter:build",
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "remotes-counter:build:development"
+        },
+        "production": {
+          "buildTarget": "remotes-counter:build:production"
+        }
       }
     }
   },

@@ -4,7 +4,7 @@ const { merge } = require('webpack-merge');
 
 const federatedWebpack = withModuleFederation({
   ...moduleFederationConfig,
-  remotes: [],
+  // remember not to overwrite remotes here as module federation comes with default for development
 });
 
 const polyfillConfig = {};

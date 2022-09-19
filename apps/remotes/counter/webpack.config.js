@@ -1,28 +1,27 @@
 const withModuleFederation = require('@nrwl/react/module-federation');
 const moduleFederationConfig = require('./module-federation.config');
 const { merge } = require('webpack-merge');
-// const { writeFile, writeFileSync } = require('fs');
+const { writeFile, writeFileSync } = require('fs');
 
+// development file
 const federatedWebpack = withModuleFederation({
   ...moduleFederationConfig,
-  remotes: [['remote-counter', 'http://localhost:4201/']],
 });
 
 const polyfillConfig = {
-  mode: 'production',
   devtool: false,
 };
 
 module.exports = new Promise((resolve) =>
   federatedWebpack.then((fn) => {
     resolve((config) => {
-      const mergedConfig = fn(merge(config, polyfillConfig));
-      // try {
-      //   writeFileSync('./webpper.json', JSON.stringify(mergedConfig));
-      // } catch (err) {
-      //   console.log(err, 'is error');
-      // }
-      return mergedConfig;
+      const _config = fn(merge(config, polyfillConfig));
+      try {
+        writeFileSync('./webpack-counter.json', JSON.stringify(_config));
+      } catch (err) {
+        console.log(err);
+      }
+      return _config;
     });
   })
 );
