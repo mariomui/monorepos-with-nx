@@ -15,7 +15,7 @@ export function App() {
     <React.Suspense fallback={null}>
     <StyledApp>
       <div>{counter}</div>
-      not  dfsfdf ddd fdfdfd
+    This is a counter
       <button onClick={handleClick}>Click Me </button>
     </StyledApp>
     </React.Suspense >

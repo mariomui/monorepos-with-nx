@@ -7,6 +7,16 @@ const StyledApp = styled.div`
   // Your style here
 `;
 
+let self;
+if (typeof window !== undefined) {
+  self = window;
+} else {
+  self = global;
+}
+self.$RefreshReg$ = () => ({});
+self.$RefreshReg$ = () => () => ({});
+
+
 export function App() {
   return (
     <Suspense fallback={null}>
@@ -14,10 +24,10 @@ export function App() {
         <div role="navigation">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Homed</Link>
             </li>
             <li>
-              <Link to="/page-2">Page 2</Link>
+              <Link to="/page-2">Page 21</Link>
             </li>
           </ul>
         </div>
