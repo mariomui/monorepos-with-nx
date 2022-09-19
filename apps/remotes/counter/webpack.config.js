@@ -10,6 +10,17 @@ const federatedWebpack = withModuleFederation({
 
 const polyfillConfig = {
   // devtool: false,
+  watch: true,
+  devServer: {
+    liveReload: true,
+    // hot: false,
+    compress: true,
+    client: {
+      overlay: {
+        warnings: true,
+      },
+    },
+  },
 };
 
 module.exports = new Promise((resolve) =>
@@ -21,7 +32,8 @@ module.exports = new Promise((resolve) =>
       // } catch (err) {
       //   console.log(err);
       // }
-      _config.watch = true;
+      _config.devServer.hot = false;
+
       return _config;
     });
   })

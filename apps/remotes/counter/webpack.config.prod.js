@@ -10,7 +10,6 @@ const federatedWebpack = withModuleFederation({
 
 const polyfillConfig = {
   mode: 'production',
-  devtool: false,
 };
 
 module.exports = new Promise((resolve) =>
