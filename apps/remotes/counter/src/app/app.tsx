@@ -15,7 +15,7 @@ export function App() {
     <React.Suspense fallback={null}>
       <StyledApp>
         <div>{counter}</div>
-        Remove HMR
+        Static site more shit
         <button onClick={handleClick}>Click Me </button>
       </StyledApp>
     </React.Suspense>

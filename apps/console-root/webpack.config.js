@@ -7,7 +7,6 @@ const federatedWebpack = withModuleFederation({
   ...moduleFederationConfig,
   // remember not to overwrite remotes here as module federation comes with default for development,
 });
-
 const polyfillConfig = {
   mode: 'development',
   devtool: 'inline-cheap-source-map',

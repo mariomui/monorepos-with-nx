@@ -3,10 +3,9 @@ const moduleFederationConfig = require('./module-federation.config');
 const { merge } = require('webpack-merge');
 const { writeFileSync } = require('fs');
 const { join } = require('path');
-
 const federatedWebpack = withModuleFederation({
   ...moduleFederationConfig,
-  remotes: [['remotes-counter', 'http://localhost:4201/']],
+  remotes: [['remotes-counter', '//localhost:4201']],
 });
 
 const polyfillConfig = {
@@ -17,7 +16,6 @@ const configureWritePath = (rootPath, { env, name }) => {
     rootPath,
     `debugs/debug-webpack-config-${env}-${name}.json`
   );
-  console.log({ path });
   return path;
 };
 const isDebugEnv = process.env?.DEBUG_ENV === 'true';
@@ -25,8 +23,8 @@ module.exports = new Promise((resolve) =>
   federatedWebpack.then((fn) => {
     resolve((config, context) => {
       const mergedConfig = fn(merge(config, polyfillConfig));
+
       if (isDebugEnv) {
-        console.log(mergedConfig);
         try {
           writeFileSync(
             configureWritePath('./', {
