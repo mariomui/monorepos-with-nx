@@ -52,6 +52,23 @@
       }
     },
     "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "console-root:build",
+        "hmr": true,
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "console-root:build:development"
+        },
+        "production": {
+          "buildTarget": "shell:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "servemf": {
       "executor": "@nrwl/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
@@ -59,7 +76,7 @@
           "remotes-counter"
         ],
         "port": 4200,
-        "buildTarget": "console-root:build",
+        "buildTarget": "console-root:build:dev",
         "open": true,
         "watch": false
       },
