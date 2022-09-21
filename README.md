@@ -1,6 +1,10 @@
 
 # Bookspear
 
+Takeaways:
+react:module-federaton-server
+this starts up the remotes and host all at once, rather in seperate terminals
+
 ## Before You Start Developing
 
 * create a .env in your root folder
@@ -119,3 +123,36 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+{
+  x: '@testing-library/react',
+  a: { singleton: true, strictVersion: true, requiredVersion: '13.3.0' }
+}
+{
+  x: '@emotion/styled',
+  a: { singleton: true, strictVersion: true, requiredVersion: '11.10.4' }
+}
+{
+  x: 'react',
+  a: { singleton: true, strictVersion: true, requiredVersion: '18.2.0' }
+}
+{
+  x: 'react-dom',
+  a: { singleton: true, strictVersion: true, requiredVersion: '18.2.0' }
+}
+{
+  x: '@nrwl/react',
+  a: { singleton: true, strictVersion: true, requiredVersion: '14.7.5' }
+}
+{
+  x: 'react-router-dom',
+  a: { singleton: true, strictVersion: true, requiredVersion: '6.3.0' }
+}
+{
+  x: 'core-js',
+  a: { singleton: true, strictVersion: true, requiredVersion: '^3.6.5' }
+}
+{
+  x: 'regenerator-runtime',
+  a: { singleton: true, strictVersion: true, requiredVersion: '0.13.7' }
+}

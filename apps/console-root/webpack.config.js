@@ -10,10 +10,10 @@ const federatedWebpack = withModuleFederation({
 const polyfillConfig = {
   mode: 'development',
   devtool: 'inline-cheap-source-map',
-  watch: true,
-  watchOptions: {
-    poll: 1000,
-  },
+  // watch: true,
+  // watchOptions: {
+  //   poll: 1000,
+  // },
   devServer: {
     liveReload: true,
     // hot: false,
@@ -33,7 +33,7 @@ module.exports = new Promise((resolve) =>
       const _config = fn(merge(config, polyfillConfig));
       console.log({ devServerBefore: _config.devServer });
       // you can manually insert to config here but the merge webpack function is much smarter
-      _config.devServer.hot = false;
+      // _config.devServer.hot = true;
       console.log({ devServerAfter: _config.devServer });
       return _config;
     });

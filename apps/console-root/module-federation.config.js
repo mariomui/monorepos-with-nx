@@ -1,8 +1,8 @@
 module.exports = {
   name: 'console-root',
-  remotes: [['remotes-counter', '//localhost:4201']],
+  remotes: ['remotes-counter'],
   shared: (x, a) => {
-    console.log({ x });
+    console.log({ x, a });
     return a;
   },
 };

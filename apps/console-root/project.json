@@ -31,7 +31,8 @@
           "extractLicenses": false,
           "optimization": false,
           "sourceMap": true,
-          "vendorChunk": true
+          "vendorChunk": true,
+          "webpackConfig": "apps/console-root/webpack.config.js"
         },
         "production": {
           "webpackConfig": "apps/console-root/webpack.config.prod.js",
@@ -60,7 +61,7 @@
         "port": 4200,
         "buildTarget": "console-root:build",
         "open": true,
-        "hmr": true
+        "watch": false
       },
       "configurations": {
         "development": {
@@ -97,15 +98,15 @@
       "executor": "@nrwl/web:file-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "host:build",
+        "buildTarget": "console-root:build",
         "port": 4200
       },
       "configurations": {
         "development": {
-          "buildTarget": "host:build:development"
+          "buildTarget": "console-root:build:development"
         },
         "production": {
-          "buildTarget": "host:build:production"
+          "buildTarget": "console-root:build:production"
         }
       }
     }

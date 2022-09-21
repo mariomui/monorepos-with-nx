@@ -5,7 +5,8 @@ const { writeFileSync } = require('fs');
 const { join } = require('path');
 const federatedWebpack = withModuleFederation({
   ...moduleFederationConfig,
-  remotes: [['remotes-counter', '//localhost:4201']],
+  remotes: [['remotes-counter', 'http://localhost:4201']],
+  // remotes: [['remotes-counter', 'http://localhost:4200/remotes-counter']],
 });
 
 const polyfillConfig = {

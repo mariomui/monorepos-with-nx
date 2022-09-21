@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Suspense, lazy } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
+import ErrorBoundary from '../ErrorBoundary';
 const Counter = lazy(() => import('remotes-counter/Module'));
 
 const StyledApp = styled.div`
@@ -23,14 +24,17 @@ export function App() {
         <div role="navigation">
           <ul>
             <li>
-              <Link to="/">Homedd</Link>
+              <Link to="/">Homdedd</Link>
             </li>
             <li>
               <Link to="/page-2">Page 21</Link>
             </li>
           </ul>
         </div>
-        <Counter />
+        <ErrorBoundary>
+
+          <Counter />
+        </ErrorBoundary>
         <Routes>
           <Route
             path="/"
