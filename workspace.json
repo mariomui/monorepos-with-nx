@@ -10,6 +10,7 @@
     "console-root-e2e": "apps/console-root-e2e",
     "models": "libs/models",
     "remotes-counter": "apps/remotes/counter",
-    "remotes-counter-e2e": "apps/remotes/counter-e2e"
+    "remotes-counter-e2e": "apps/remotes/counter-e2e",
+    "shared-mfe": "libs/shared-mfe"
   }
 }

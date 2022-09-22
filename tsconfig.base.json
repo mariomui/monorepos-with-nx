@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@bookspear/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@bookspear/models": ["libs/models/src/index.ts"]
+      "@bookspear/models": ["libs/models/src/index.ts"],
+      "@bookspear/shared-mfe": ["libs/shared-mfe/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
