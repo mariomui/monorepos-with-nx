@@ -1,1 +1,2 @@
-declare module 'remotes-counter/Module';
+declare module 'counter/App';
+declare module 'counter/counter';

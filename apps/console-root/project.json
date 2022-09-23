@@ -63,7 +63,7 @@
           "buildTarget": "console-root:build:development"
         },
         "production": {
-          "buildTarget": "shell:build:production",
+          "buildTarget": "console-root:build:production",
           "hmr": false
         }
       }
@@ -73,7 +73,7 @@
       "defaultConfiguration": "development",
       "options": {
         "devRemotes": [
-          "remotes-counter"
+          "counter"
         ],
         "port": 4200,
         "buildTarget": "console-root:build:dev",
@@ -130,6 +130,6 @@
   },
   "tags": [],
   "implicitDependencies": [
-    "remotes-counter"
+    "counter"
   ]
 }

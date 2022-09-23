@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'remotes-counter',
+  displayName: 'counter',
   preset: '../../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',

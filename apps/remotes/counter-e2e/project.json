@@ -7,22 +7,28 @@
       "executor": "@nrwl/cypress:cypress",
       "options": {
         "cypressConfig": "apps/remotes/counter-e2e/cypress.json",
-        "devServerTarget": "remotes-counter:serve:development"
+        "devServerTarget": "counter:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "remotes-counter:serve:production"
+          "devServerTarget": "counter:serve:production"
         }
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/remotes/counter-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": [
+          "apps/remotes/counter-e2e/**/*.{js,ts}"
+        ]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["remotes-counter"]
+  "implicitDependencies": [
+    "counter"
+  ]
 }

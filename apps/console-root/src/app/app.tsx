@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import { Suspense, lazy } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import ErrorBoundary from '../ErrorBoundary';
-const Counter = lazy(() => import('remotes-counter/Module'));
+import { sharedMfe } from '@bookspear/shared-mfe';
+const Counter = lazy(() => import('counter/App'));
 
 const StyledApp = styled.div`
   // Your style here
@@ -25,6 +26,7 @@ export function App() {
           <ul>
             <li>
               <Link to="/">Hodmdedd</Link>
+              {sharedMfe()}
             </li>
             <li>
               <Link to="/page-2">Page 21</Link>

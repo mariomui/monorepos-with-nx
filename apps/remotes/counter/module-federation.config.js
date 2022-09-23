@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'remotes-counter',
+  name: 'counter',
   exposes: {
-    './Module': './src/remote-entry.ts',
+    './Module': './src/remote-entry',
   },
 };
