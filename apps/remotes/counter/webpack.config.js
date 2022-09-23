@@ -1,7 +1,7 @@
 const withModuleFederation = require('@nrwl/react/module-federation');
 const moduleFederationConfig = require('./module-federation.config');
 const { merge } = require('webpack-merge');
-const { writeFileSync } = require('fs');
+// const { writeFileSync } = require('fs');
 
 // development file
 const federatedWebpack = withModuleFederation({
@@ -10,7 +10,7 @@ const federatedWebpack = withModuleFederation({
 
 const polyfillConfig = {
   // devtool: false,
-  watch: true,
+  // watch: true,
   devServer: {
     liveReload: true,
     // hot: false,
@@ -32,7 +32,7 @@ module.exports = new Promise((resolve) =>
       // } catch (err) {
       //   console.log(err);
       // }
-      _config.devServer.hot = false;
+      _config.devServer.hot = true;
 
       return _config;
     });

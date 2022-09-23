@@ -12,14 +12,14 @@ export function App() {
     setCounter(counter + 1);
   };
   return (
-    <React.Suspense fallback={null}>
+    <React.Suspense fallback={"...loaidng counter"}>
       <StyledApp>
         <div>{counter}</div>
-        Remove HMR
+        Static site more sddhidddt
         <button onClick={handleClick}>Click Me </button>
       </StyledApp>
     </React.Suspense>
   );
 }
 
-export default App;
+export default App

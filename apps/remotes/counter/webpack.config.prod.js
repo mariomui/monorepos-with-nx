@@ -1,7 +1,6 @@
 const withModuleFederation = require('@nrwl/react/module-federation');
 const moduleFederationConfig = require('./module-federation.config');
 const { merge } = require('webpack-merge');
-const { writeFileSync } = require('fs');
 // production file
 const federatedWebpack = withModuleFederation({
   ...moduleFederationConfig,
