@@ -57,7 +57,7 @@ module.exports = (config, context) => {
     plugins: [
       ...config.plugins,
       new ModuleFederationPlugin({
-        name: 'counter',
+        name: '$remote_counter',
         filename: 'remoteEntry.js',
         exposes: {
           './App': './src/app/app.tsx',

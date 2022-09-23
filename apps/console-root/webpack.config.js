@@ -21,7 +21,8 @@ module.exports = (config, context) => {
         name: 'console-root',
         filename: 'remoteEntry.js',
         remotes: {
-          counter: 'counter@http://localhost:4201/remoteEntry.js',
+          $remote_counter:
+            '$remote_counter@http://localhost:4201/remoteEntry.js',
         },
         shared: {
           // ...deps,

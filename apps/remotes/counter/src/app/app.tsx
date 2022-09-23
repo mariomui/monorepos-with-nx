@@ -12,7 +12,7 @@ export function App() {
     setCounter(counter + 1);
   };
   return (
-    <React.Suspense fallback={null}>
+    <React.Suspense fallback={"...loaidng counter"}>
       <StyledApp>
         <div>{counter}</div>
         Static site more sddhidddt
@@ -22,4 +22,4 @@ export function App() {
   );
 }
 
-export default App;
+export default App

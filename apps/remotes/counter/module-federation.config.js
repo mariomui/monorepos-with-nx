@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'counter',
+  name: '$remote_counter',
   exposes: {
-    './Module': './src/remote-entry',
+    './Module': './src/remoteEntry.js',
   },
 };

@@ -1,6 +1,6 @@
 module.exports = {
   name: 'console-root',
-  remotes: ['counter'],
+  remotes: ['$remote_counter'],
   shared: (x, a) => {
     console.log({ x, a });
     return a;
