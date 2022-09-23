@@ -10,6 +10,31 @@ module.exports = (config, context) => {
     extens: config.resolve.extensions,
     devServer: config.devServer,
   });
+  console.log({ deps });
+  const nodedeps = ['express, @prisma/client'];
+  const eagerDeps = ['react', 'react-dom', 'react-router-dom'];
+  const donotInclude = ['tslib'];
+  const _deps = Object.entries(deps)
+    .map(([name, version]) => {
+      if (donotInclude.includes(name)) return null;
+      if (nodedeps.includes(name)) return null;
+      if (eagerDeps.includes(name)) {
+        return {
+          [name]: {
+            singleton: true,
+            requiredVersion: version,
+            eager: true,
+          },
+        };
+      }
+      return {
+        [name]: {
+          singleton: true,
+          requiredVersion: version,
+        },
+      };
+    })
+    .filter((pkg) => pkg !== null);
   return {
     ...config,
     mode: 'development',
@@ -39,6 +64,7 @@ module.exports = (config, context) => {
         },
         shared: {
           ...deps,
+          lodash: '*',
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           'react-dom': {
             singleton: true,

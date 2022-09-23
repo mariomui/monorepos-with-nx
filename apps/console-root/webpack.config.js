@@ -7,7 +7,8 @@ module.exports = (config, context) => {
     mode: 'development',
     output: {
       ...config.output,
-      publicPath: 'http://localhost:4200/',
+      publicPath: 'auto',
+      // publicPath: 'http://localhost:4200/',
       clean: true,
     },
     optimization: {
