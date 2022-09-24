@@ -28,6 +28,8 @@
     "**/*.js",
     "**/*.jsx",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "wepback.config.ts.js",
+    "wepback.config.typed.ts"
   ]
 }

@@ -3,6 +3,14 @@
   "sourceRoot": "apps/console-root/src",
   "projectType": "application",
   "targets": {
+    "servedev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "envFile": "apps/console-root/.envFile",
+        "command": "node runScript.js",
+        "cwd": "apps/console-root"
+      }
+    },
     "build": {
       "executor": "@nrwl/web:webpack",
       "outputs": [
@@ -34,6 +42,13 @@
           "vendorChunk": true,
           "webpackConfig": "apps/console-root/webpack.config.js"
         },
+        "tsdevelopment": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true,
+          "webpackConfig": "apps/console-root/webpack.config.typed.js"
+        },
         "production": {
           "webpackConfig": "apps/console-root/webpack.config.prod.js",
           "fileReplacements": [
@@ -61,6 +76,9 @@
       "configurations": {
         "development": {
           "buildTarget": "console-root:build:development"
+        },
+        "tsdevelopment": {
+          "buildTarget": "console-root:build:tsdevelopment"
         },
         "production": {
           "buildTarget": "console-root:build:production",

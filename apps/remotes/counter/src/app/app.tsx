@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
+import { counterMfe } from '@bookspear/shared-mfe';
 const StyledApp = styled.div`
   border: 1px solid blue;
   padding: 1em 1em;
@@ -15,7 +16,8 @@ export function App() {
     <React.Suspense fallback={"...loaidng counter"}>
       <StyledApp>
         <div>{counter}</div>
-        Static site more sddhidddt
+        UniDirectional Counter
+        {counterMfe()}
         <button onClick={handleClick}>Click Me </button>
       </StyledApp>
     </React.Suspense>

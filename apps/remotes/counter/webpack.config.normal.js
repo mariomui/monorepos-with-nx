@@ -1,6 +1,7 @@
 const { ModuleFederationPlugin } = require('webpack').container;
 const deps = require('../../../package.json').dependencies;
 const path = require('path');
+
 module.exports = (config, context) => {
   const directory = '././../../../dist/apps/remotes/counter';
   console.log({ config, directory });
@@ -13,7 +14,7 @@ module.exports = (config, context) => {
   console.log({ deps });
   const nodedeps = ['express, @prisma/client'];
   const eagerDeps = ['react', 'react-dom', 'react-router-dom'];
-  const donotInclude = ['tslib'];
+  const donotInclude = [''];
   const _deps = Object.entries(deps)
     .map(([name, version]) => {
       if (donotInclude.includes(name)) return null;
